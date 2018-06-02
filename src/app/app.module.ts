@@ -19,6 +19,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AuthService } from '../services/auth.service';
+import { MapPage } from '../pages/map/map';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthService } from '../services/auth.service';
     HomePage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { AuthService } from '../services/auth.service';
     HomePage,
     ListPage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    MapPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,9 @@
+<ion-content padding>
+    <div *ngIf='loadMapError'>
+        {{loadMapError}}
+      </div>
+    
+      <div *ngIf='!loadMapError' style="height: 100%; width: 100%;">
+          <div #map id="map" style="height: 100%; width: 100%;"></div>
+      </div>
+</ion-content>
