@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,11 +15,29 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = null;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  /**
+   * Login to the firebase authentication
+   */
+  public login(): void {
+    this.authService.signOut();
+    this.nav.setRoot(LoginPage);
+  }
+
+  /**
+   * Logout from the firebase authentication
+   */
+  public logout(): void {
+    this.login();
+  }
+
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen,
+              private authService: AuthService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -34,6 +55,11 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    this.authService.afAuth.authState.subscribe(
+      user => this.rootPage = user ? HomePage : LoginPage,
+      () => this.rootPage = LoginPage
+    )
   }
 
   openPage(page) {
