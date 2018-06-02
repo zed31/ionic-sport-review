@@ -8,6 +8,14 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf='loadMapError'>
+    {{loadMapError}}
+  </div>
+
+  <div *ngIf='!loadMapError' style="height: 20%; width: 100%;">
+      <div #map id="map" style="height: 100%; width: 100%;"></div>
+  </div>
+
   <h3>Ionic Menu Starter</h3>
 
   <p>

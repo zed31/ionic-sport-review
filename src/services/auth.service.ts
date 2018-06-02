@@ -56,6 +56,13 @@ export class AuthService {
     }
 
     /**
+     * @returns the authenticated user
+     */
+    get userAuthenticated(): firebase.User {
+        return this.user;
+    }
+
+    /**
      * Sign out from firebase authentication
      */
     public signOut(): void {

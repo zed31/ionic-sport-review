@@ -37,7 +37,7 @@ export class LoginPage {
       password: data.password
     }
     this.auth.signInWithEmail(credential).then(
-      () => this.navCtrl.setRoot(HomePage),
+      () => console.log("connected with simple email and password"),
       error => this.loginError = error.message
     )
   }
@@ -47,7 +47,7 @@ export class LoginPage {
    */
   public loginWithGoogle() {
     this.auth.signInWithGoogle().then(
-      () => this.navCtrl.setRoot(HomePage),
+      () => console.log("connected with google"),
       error => this.loginError = error.message
     )
   }
