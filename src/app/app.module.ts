@@ -20,6 +20,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AuthService } from '../services/auth.service';
 import { MapPage } from '../pages/map/map';
+import { HomeStatisticsPage } from '../pages/home-statistics/home-statistics';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MapPage } from '../pages/map/map';
     ListPage,
     LoginPage,
     SignupPage,
-    MapPage
+    MapPage,
+    HomeStatisticsPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { MapPage } from '../pages/map/map';
     ListPage,
     LoginPage,
     SignupPage,
-    MapPage
+    MapPage,
+    HomeStatisticsPage
   ],
   providers: [
     StatusBar,
