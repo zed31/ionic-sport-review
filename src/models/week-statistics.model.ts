@@ -1,4 +1,4 @@
-import { SportActivityModel } from './sport-activity.model';
+import { ActivityModel } from './activity.model';
 
 /**
  * @class WeekStatisticsModel
@@ -6,5 +6,5 @@ import { SportActivityModel } from './sport-activity.model';
  */
 export class WeekStatisticsModel {
     public weekValue: string;
-    public sportActivities: SportActivityModel[];
+    public sportActivities: ActivityModel[];
 }
