@@ -16,11 +16,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { firebaseConfig } from '../firebase.config';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AuthService } from '../services/auth.service';
 import { MapPage } from '../pages/map/map';
 import { HomeStatisticsPage } from '../pages/home-statistics/home-statistics';
+import { DatabaseService } from '../services/database.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HomeStatisticsPage } from '../pages/home-statistics/home-statistics';
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,6 +57,7 @@ import { HomeStatisticsPage } from '../pages/home-statistics/home-statistics';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
     AuthService,
+    DatabaseService,
     Geolocation
   ]
 })

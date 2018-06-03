@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
+import { DatabaseService } from '../../services/database.service';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
  */
 export class HomeStatisticsPage {
 
-  
+
 
   /**
    * @constructor
@@ -26,10 +27,13 @@ export class HomeStatisticsPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private platform: Platform,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private dbService: DatabaseService) {
     this.platform.ready().then(
       () => {
         console.log('Connected with the user', this.authService.userAuthenticated.uid);
+        this.dbService.setupReference(this.authService.userAuthenticated.uid);
+        this.dbService.createYear('2018');
       }
     )
   }
