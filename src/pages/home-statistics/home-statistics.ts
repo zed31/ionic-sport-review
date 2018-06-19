@@ -15,8 +15,6 @@ import { DatabaseService } from '../../services/database.service';
  */
 export class HomeStatisticsPage {
 
-
-
   /**
    * @constructor
    * @param navCtrl The controller used to navigate through the application
@@ -33,7 +31,6 @@ export class HomeStatisticsPage {
       () => {
         console.log('Connected with the user', this.authService.userAuthenticated.uid);
         this.dbService.setupReference(this.authService.userAuthenticated.uid);
-        this.dbService.createYear('2018');
       }
     )
   }

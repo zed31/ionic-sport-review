@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, snapshotChanges } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { DataSnapshot } from 'angularfire2/database/interfaces';
 
@@ -25,20 +25,18 @@ export class DatabaseService {
     }
 
     /**
-     * Create the year inside the database
-     * @param year The year in a string format
-     */
-    public createYear(year: string): void {
-        this.userRef.child(year).set({year});
-    }
-
-    /**
      * Setup the reference of the user to get his statistics
      * or even store them
      * @param uid The uid of the authenticated user
      */
     public setupReference(uid: string): void {
         this.userRef = this.database.ref('users/' + uid);
+        this.userRef.set({uid});
+        this.userRef.once('value').then((snapshotChanges: firebase.database.DataSnapshot) => {
+            snapshotChanges.forEach((snapshot: firebase.database.DataSnapshot) => {
+                const ref = snapshot.ref;
+            })
+        })
     }
 
 }
