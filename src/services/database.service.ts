@@ -2,6 +2,18 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, snapshotChanges } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { DataSnapshot } from 'angularfire2/database/interfaces';
+import { Observable } from 'rxjs/Observable';
+import { ModelService } from './model.service';
+import {
+    ActivityDetailModel,
+    ActivityFrameModel,
+    TotalStatisticModel,
+    WeekStatisticsModel,
+    YearStatisticsModel,
+    UserStatisticsModel
+} from '../models/statistics.model';
+import { Subscriber } from 'rxjs';
+
 
 @Injectable()
 
@@ -25,18 +37,29 @@ export class DatabaseService {
     }
 
     /**
+     * Get the user statistics from the current DB
+     */
+    public getUserStatistics(
+        onValueChanged: (snapshot: firebase.database.DataSnapshot) => void
+    ): void {
+        this.userRef.on('value', onValueChanged);
+    }
+
+    /**
+     * Update statistics on the database
+     * @param userStat The statistics updated on the database
+     */
+    public updateStatistics(userStat: UserStatisticsModel): void {
+        this.userRef.set(userStat);
+    }
+
+    /**
      * Setup the reference of the user to get his statistics
      * or even store them
      * @param uid The uid of the authenticated user
      */
     public setupReference(uid: string): void {
         this.userRef = this.database.ref('users/' + uid);
-        this.userRef.set({uid});
-        this.userRef.once('value').then((snapshotChanges: firebase.database.DataSnapshot) => {
-            snapshotChanges.forEach((snapshot: firebase.database.DataSnapshot) => {
-                const ref = snapshot.ref;
-            })
-        })
     }
 
 }

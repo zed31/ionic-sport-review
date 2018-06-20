@@ -1,5 +1,6 @@
 <ion-content padding>
     <h3><ion-icon name="stats"></ion-icon> WEEKLY STATS</h3>
-    <p><ion-icon name="clock"></ion-icon> 3h50min</p>
-    <p><ion-icon name="resize"></ion-icon> 300km</p>
+    <p>Vos statistiques de la semaine</p>
+    <p><ion-icon name="clock"></ion-icon> {{weekStats.distance || 'Nothing'}}</p>
+    <p><ion-icon name="resize"></ion-icon> {{weekStats.time || 'Nothing'}}</p>
 </ion-content>

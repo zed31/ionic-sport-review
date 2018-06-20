@@ -30,13 +30,20 @@ export class ModelService {
     constructor(private user: UserStatisticsModel) {}
 
     /**
+     * @returns the current user statistics
+     */
+    public getUserStatistics(): UserStatisticsModel {
+        return this.user;
+    }
+
+    /**
      * Get the statistic of a specific year
      * @param year The year being requested
      */
     public getStatisticYear(year: string): YearStatisticsModel {
-        return this.user.statistics.find(
+        return this.user.statistics ? this.user.statistics.find(
             (yearStat: YearStatisticsModel) => yearStat.year === year
-        );
+        ) : null;
     }
 
     /**
@@ -69,7 +76,7 @@ export class ModelService {
             return null;
         }
         const weekStatistic: WeekStatisticsModel = this.getWeekInfo(week, yearStatistic);
-        return weekStatistic ? null : weekStatistic.total;
+        return !weekStatistic ? null : weekStatistic.total;
     }
 
     /**
@@ -101,7 +108,7 @@ export class ModelService {
             return null;
         }
         const weekStatistics: WeekStatisticsModel = this.getWeekInfo(week, yearStatistic);
-        return weekStatistics ? null: weekStatistics.activities;
+        return !weekStatistics ? null: weekStatistics.activities;
     }
 
     /**

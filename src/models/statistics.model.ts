@@ -9,6 +9,14 @@ export class ActivityFrameModel {
 };
 
 /**
+ * @class SportActivityModel
+ * Store the frames of an activity
+ */
+export class SportActivityModel {
+    frames: ActivityFrameModel[];
+}
+
+/**
  * @class TotalStatisticModel
  * class used to store the total of an activity
  */
@@ -24,7 +32,7 @@ export class TotalStatisticModel {
  */
 export class ActivityDetailModel {
     name: string;
-    frames: ActivityFrameModel[];
+    frames: SportActivityModel[];
     total: TotalStatisticModel;
 };
 
@@ -52,6 +60,11 @@ export class YearStatisticsModel {
  * Class used to store the statistics of an user
  */
 export class UserStatisticsModel {
-    key: string;
-    statistics: YearStatisticsModel[];
+
+    /**
+     * @constructor
+     * @param key The key of the user statistics
+     * @param statistics The statistics of the user
+     */
+    constructor(public key: string, public statistics: YearStatisticsModel[]) {}
 };

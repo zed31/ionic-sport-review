@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
+import { DateUtils } from '../../utils/date.utils';
 import { DatabaseService } from '../../services/database.service';
+import { TotalStatisticModel, UserStatisticsModel } from '../../models/statistics.model';
+import { ModelService } from '../../services/model.service';
+import * as firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -14,6 +18,10 @@ import { DatabaseService } from '../../services/database.service';
  * Class used to handle the user statistics inside the Home page
  */
 export class HomeStatisticsPage {
+
+  private currentWeek: string = new DateUtils().getCurrentWeek(new Date());
+  private userDBService: ModelService = null;
+  private weekStats: TotalStatisticModel = new TotalStatisticModel();
 
   /**
    * @constructor
@@ -29,8 +37,18 @@ export class HomeStatisticsPage {
               private dbService: DatabaseService) {
     this.platform.ready().then(
       () => {
-        console.log('Connected with the user', this.authService.userAuthenticated.uid);
         this.dbService.setupReference(this.authService.userAuthenticated.uid);
+        this.dbService.getUserStatistics(
+          (snapshot : firebase.database.DataSnapshot) => {
+            this.userDBService = new ModelService(
+              new UserStatisticsModel(snapshot.child('key').val(), snapshot.child('statistics').val())
+            );
+            this.weekStats = this.userDBService.getTotalOf(this.currentWeek);
+            if (!this.weekStats) {
+              this.weekStats = new TotalStatisticModel();
+            }
+          }
+        );
       }
     )
   }

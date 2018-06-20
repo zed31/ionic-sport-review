@@ -1,0 +1,118 @@
+{
+    "users" : { 
+        "gM3cqR0wYAXnxNGHgnzeTQhVIM82" : {
+            "key" : "gM3cqR0wYAXnxNGHgnzeTQhVIM82",
+            "statistics" : [{
+                "year" : "2018",
+                "weeks" : [
+                    {
+                        "week" : "25",
+                        "total" : {
+                            "distance" : 34,
+                            "elevation" : 240,
+                            "time" : 7800
+                        },
+                        "activities" : [
+                            {
+                                "name" : "running",
+                                "frames" : [{
+                                    "frames" : [
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        }
+                                    ]
+                                }],
+                                "total" : {
+                                    "distance" : 10,
+                                    "elevation" : 200,
+                                    "time": 7000
+                                }
+                            },
+                            {
+                                "name" : "bike",
+                                "frames" : [{
+                                    "frames" : [
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        }
+                                    ]
+                                }],
+                                "total" : {
+                                    "distance" : 10,
+                                    "elevation" : 240,
+                                    "time": 400
+                                }
+                            },
+                            {
+                                "name" : "swim",
+                                "frames" : [{
+                                    "frames" : [
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        },
+                                        {
+                                            "lng": 204.5,
+                                            "lat": 25.8,
+                                            "alt": 200
+                                        }
+                                    ]
+                                }],
+                                "total" : {
+                                    "distance" : 4,
+                                    "elevation" : 0,
+                                    "time": 400
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }
+    }
+}
