@@ -39,9 +39,7 @@ export class DatabaseService {
     /**
      * Get the user statistics from the current DB
      */
-    public getUserStatistics(
-        onValueChanged: (snapshot: firebase.database.DataSnapshot) => void
-    ): void {
+    public watchUserDB(onValueChanged: (snapshot: firebase.database.DataSnapshot) => void): void {
         this.userRef.on('value', onValueChanged);
     }
 

@@ -1,3 +1,4 @@
+
 /**
  * @class ActivityFrameModel
  * Class used to store a frame of a simple activity
@@ -56,6 +57,16 @@ export class YearStatisticsModel {
 };
 
 /**
+ * @class TrainingModel
+ * Store a list of trainings
+ */
+export class TrainingModel {
+    sport: string;
+    predicate: 'distance' | 'time';
+    threshold: number;
+}
+
+/**
  * @class UserStatisticsModel
  * Class used to store the statistics of an user
  */
@@ -65,6 +76,9 @@ export class UserStatisticsModel {
      * @constructor
      * @param key The key of the user statistics
      * @param statistics The statistics of the user
+     * @param trainings The list of trainings for the user
      */
-    constructor(public key: string, public statistics: YearStatisticsModel[]) {}
+    constructor(public key: string, 
+                public statistics: YearStatisticsModel[],
+                public trainings: TrainingModel[]) {}
 };

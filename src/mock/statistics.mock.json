@@ -112,7 +112,24 @@
                         ]
                     }
                 ]
-            }]
+            }],
+            "trainings": [
+                    {
+                        "sport": "run",
+                        "predicate" : "distance",
+                        "threshold" : 4
+                    },
+                    {
+                        "sport": "swin",
+                        "predicate" : "time",
+                        "threshold" : 3600
+                    },
+                    {
+                        "sport": "bike",
+                        "predicate" : "distance",
+                        "threshold" : 5
+                    }
+                ]
         }
     }
 }

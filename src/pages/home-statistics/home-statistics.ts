@@ -38,10 +38,14 @@ export class HomeStatisticsPage {
     this.platform.ready().then(
       () => {
         this.dbService.setupReference(this.authService.userAuthenticated.uid);
-        this.dbService.getUserStatistics(
+        this.dbService.watchUserDB(
           (snapshot : firebase.database.DataSnapshot) => {
             this.userDBService = new ModelService(
-              new UserStatisticsModel(snapshot.child('key').val(), snapshot.child('statistics').val())
+              new UserStatisticsModel(
+                  snapshot.child('key').val(), 
+                  snapshot.child('statistics').val(),
+                  snapshot.child('trainings').val()
+              )
             );
             this.weekStats = this.userDBService.getTotalOf(this.currentWeek);
             if (!this.weekStats) {
