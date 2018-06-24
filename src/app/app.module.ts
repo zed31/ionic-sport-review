@@ -23,6 +23,7 @@ import { AuthService } from '../services/auth.service';
 import { MapPage } from '../pages/map/map';
 import { HomeStatisticsPage } from '../pages/home-statistics/home-statistics';
 import { DatabaseService } from '../services/database.service';
+import { HomeTrainingPage } from '../pages/home-training/home-training';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DatabaseService } from '../services/database.service';
     LoginPage,
     SignupPage,
     MapPage,
-    HomeStatisticsPage
+    HomeStatisticsPage,
+    HomeTrainingPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { DatabaseService } from '../services/database.service';
     LoginPage,
     SignupPage,
     MapPage,
-    HomeStatisticsPage
+    HomeStatisticsPage,
+    HomeTrainingPage
   ],
   providers: [
     StatusBar,

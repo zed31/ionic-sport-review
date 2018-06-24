@@ -1,6 +1,11 @@
 <ion-content padding>
-    <h3><ion-icon name="stats"></ion-icon> WEEKLY STATS</h3>
-    <p>Vos statistiques de la semaine</p>
-    <p><ion-icon name="clock"></ion-icon> {{weekStats.distance || 'Nothing'}}</p>
-    <p><ion-icon name="resize"></ion-icon> {{weekStats.time || 'Nothing'}}</p>
+    <h3><ion-icon name="stats"></ion-icon> {{pageTitle}}</h3>
+    <div *ngIf='weekStats'>
+        <p>Vos statistiques de la semaine</p>
+        <p><ion-icon name="clock"></ion-icon> {{weekStats.distance}}</p>
+        <p><ion-icon name="resize"></ion-icon> {{weekStats.time}}</p>
+    </div>
+    <div *ngIf='!weekStats'>
+        <h4>Aucunes activités cette semaine</h4>
+    </div>
 </ion-content>

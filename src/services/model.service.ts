@@ -4,7 +4,8 @@ import {
     TotalStatisticModel,
     WeekStatisticsModel,
     YearStatisticsModel,
-    UserStatisticsModel
+    UserStatisticsModel,
+    TrainingModel
 } from '../models/statistics.model';
 
 /**
@@ -139,6 +140,13 @@ export class ModelService {
             return ;
         }
         weekStat.activities.push(detail);
+    }
+
+    /**
+     * @returns a list of training that use the user
+     */
+    public getTrainings(): TrainingModel[] {
+        return this.user.trainings;
     }
 
 }

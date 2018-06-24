@@ -8,19 +8,16 @@
 </ion-header>
 
 <ion-content padding>
-
   <div style="height: 30%">
     <page-map></page-map>
   </div>
   <div style="height: 30%">
-    <page-home-statistics></page-home-statistics>
+    <page-home-statistics 
+                [weekStats]='weekStats | async'
+                [pageTitle]='pageStatisticTitle'>
+    </page-home-statistics>
   </div>
-
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div style="height: 30%">
+    <page-home-training></page-home-training>
+  </div>
 </ion-content>
